@@ -4,8 +4,13 @@ public class Tester extends Employee{
     //Methods
     // Tester: name, birthYear, nbBugs, rate
 
-    public Tester(String name, int birthYear, double rate, int nbBugs) {
+    public Tester(String name, int birthYear, int nbBugs, double rate) {
         super(name, birthYear, rate);
+        this.nbBugs = nbBugs;
+    }
+
+    public Tester(String name, int birthYear, int nbBugs, double rate, Vehicle vehicle) {
+        super(name, birthYear, rate, vehicle);
         this.nbBugs = nbBugs;
     }
 

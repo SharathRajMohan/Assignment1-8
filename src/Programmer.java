@@ -5,8 +5,6 @@ public class Programmer extends Employee{
 
     //Methods
     // Programmer: name, birthYear, nbProjects, rate
-
-
     public Programmer(String name, int birthYear, int nbProjects, double rate) {
         super(name, birthYear, rate);
         this.nbProjects = nbProjects;
@@ -14,6 +12,16 @@ public class Programmer extends Employee{
 
     public Programmer(String name, int birthYear, int nbProjects) {
         super(name, birthYear);
+        this.nbProjects = nbProjects;
+    }
+
+    public Programmer(String name, int birthYear, int nbProjects, double rate, Vehicle vehicle) {
+        super(name, birthYear, rate, vehicle);
+        this.nbProjects = nbProjects;
+    }
+
+    public Programmer(String name, int birthYear, int nbProjects, Vehicle vehicle) {
+        super(name, birthYear, vehicle);
         this.nbProjects = nbProjects;
     }
 

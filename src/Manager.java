@@ -20,6 +20,19 @@ public class Manager extends Employee {
         this.nbClients = nbClients;
     }
 
+    // Vehicle constructors
+    public Manager(String name, int birthYear, int nbClients, int nbTravelDays, Vehicle empcar) {
+        super(name, birthYear, empcar);
+        this.nbTravelDays = nbTravelDays;
+        this.nbClients = nbClients;
+    }
+
+    public Manager(String name, int birthYear, int nbClients, int nbTravelDays, double rate, Vehicle empcar) {
+        super(name, birthYear, rate, empcar);
+        this.nbTravelDays = nbTravelDays;
+        this.nbClients = nbClients;
+    }
+
     public int getNbTravelDays() {
         return nbTravelDays;
     }

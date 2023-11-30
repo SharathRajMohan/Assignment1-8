@@ -6,7 +6,8 @@ public class Employee {
     private int age;
     private int birthYear;
     private double salary = 0.0;
-    private double rate = 10;
+    private double rate = 100;
+    private Vehicle EmpVehicle;
 
     // Methods
 
@@ -16,9 +17,9 @@ public class Employee {
         this.age = curr_year-birthYear;
         this.birthYear = birthYear;
         this.salary = salary;
-        if(rate>100)
-            this.rate = 100;
-        else this.rate = !(rate < 10) ? rate : 10;
+        if (!(rate > 100)) {
+            this.rate = !(rate < 10) ? rate : 10;
+        }
         System.out.println("We have a new Employee!");
         System.out.println(this.toString());
     }
@@ -42,6 +43,26 @@ public class Employee {
         this.birthYear = birthYear;
         System.out.println("We have a new Employee!");
         System.out.println(this.toString());
+    }
+
+    // Vehicle constructors
+    public Employee(String name, int birthYear, Vehicle empcar) {
+        int curr_year = Year.now().getValue();
+        this.name = name;
+        this.age = curr_year-birthYear;
+        this.birthYear = birthYear;
+        this.EmpVehicle = empcar;
+        System.out.println("We have a new Employee!");
+        System.out.println(this.toString());
+    }
+
+    public Employee(String name, int birthYear, double rate, Vehicle empVehicle) {
+        int curr_year = Year.now().getValue();
+        this.name = name;
+        this.age = curr_year-birthYear;
+        this.birthYear = birthYear;
+        this.rate = rate;
+        EmpVehicle = empVehicle;
     }
 
     public String getName() {
