@@ -49,6 +49,14 @@ public class Manager extends Employee {
         this.nbClients = nbClients;
     }
 
+    // Override annual income method
+    @Override
+    public double annualIncome() {
+        final double  GAIN_FACTOR_CLIENT = 500;
+        final double  GAIN_FACTOR_TRAVEL = 100;
+        return (super.annualIncome() + (GAIN_FACTOR_CLIENT * this.getNbClients()) + (GAIN_FACTOR_TRAVEL * this.getNbTravelDays()));
+    }
+
     @Override
     public String toString() {
         return "Manager{" +

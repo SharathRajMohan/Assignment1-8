@@ -105,6 +105,12 @@ public class Employee {
         this.rate = rate;
     }
 
+    // Annual Salary Method
+    public double annualIncome(){
+        return ((12 * this.salary)*this.rate);
+    }
+
+    // To String Method
     @Override
     public String toString() {
         return "Employee{" +

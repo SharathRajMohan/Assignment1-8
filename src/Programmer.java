@@ -28,10 +28,17 @@ public class Programmer extends Employee{
     public int getNbProjects() {
         return nbProjects;
     }
-
     public void setNbProjects(int nbProjects) {
         this.nbProjects = nbProjects;
     }
+
+    // Override annual income method
+    @Override
+    public double annualIncome() {
+        final double GAIN_FACTOR_PROJECTS = 200;
+        return (super.annualIncome() + (GAIN_FACTOR_PROJECTS * this.getNbProjects()));
+    }
+
     @Override
     public String toString() {
         return "Programmer{" +
