@@ -134,7 +134,7 @@ public class Employee {
 
     public void signContract(Contract p1) {
         this.setCurrentContract(p1);
-        this.salary = this.currentContract.accumulatedSalary();
+        this.setSalary(this.currentContract.accumulatedSalary());
     }
 
     public String contractInfo() {
