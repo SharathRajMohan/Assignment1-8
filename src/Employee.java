@@ -9,6 +9,8 @@ public class Employee {
     private double rate = 100;
     private Vehicle EmpVehicle;
 
+    private Contract currentContract;
+
     // Methods
 
     public Employee(String name, int birthYear, double salary, double rate) {
@@ -20,8 +22,6 @@ public class Employee {
         if (!(rate > 100)) {
             this.rate = !(rate < 10) ? rate : 10;
         }
-        System.out.println("We have a new Employee!");
-        System.out.println(this.toString());
     }
 
     public Employee(String name, int birthYear, double rate) {
@@ -29,11 +29,9 @@ public class Employee {
         this.name = name;
         this.age = curr_year-birthYear;
         this.birthYear = birthYear;
-        if(rate>1)
-            this.rate = 1.0;
-        else this.rate = !(rate < 0.01) ? rate : 0.01;
-        System.out.println("We have a new Employee!");
-        System.out.println(this.toString());
+        if (!(rate > 100)) {
+            this.rate = !(rate < 10) ? rate : 10;
+        }
     }
 
     public Employee(String name, int birthYear) {
@@ -41,8 +39,6 @@ public class Employee {
         this.name = name;
         this.age = curr_year-birthYear;
         this.birthYear = birthYear;
-        System.out.println("We have a new Employee!");
-        System.out.println(this.toString());
     }
 
     // Vehicle constructors
@@ -52,8 +48,6 @@ public class Employee {
         this.age = curr_year-birthYear;
         this.birthYear = birthYear;
         this.EmpVehicle = empcar;
-        System.out.println("We have a new Employee!");
-        System.out.println(this.toString());
     }
 
     public Employee(String name, int birthYear, double rate, Vehicle empVehicle) {
@@ -61,7 +55,9 @@ public class Employee {
         this.name = name;
         this.age = curr_year-birthYear;
         this.birthYear = birthYear;
-        this.rate = rate;
+        if (!(rate > 100)) {
+            this.rate = !(rate < 10) ? rate : 10;
+        }
         EmpVehicle = empVehicle;
     }
 
@@ -105,20 +101,43 @@ public class Employee {
         this.rate = rate;
     }
 
+    public Vehicle getEmpVehicle() {
+        return EmpVehicle;
+    }
+
+    public void setEmpVehicle(Vehicle empVehicle) {
+        EmpVehicle = empVehicle;
+    }
+
+    public Contract getCurrentContract() {
+        return currentContract;
+    }
+
+    public void setCurrentContract(Contract currentContract) {
+        this.currentContract = currentContract;
+    }
+
     // Annual Salary Method
     public double annualIncome(){
-        return ((12 * this.salary)*this.rate);
+        return ((12 * this.getSalary())*this.getRate());
     }
 
     // To String Method
     @Override
     public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", birthYear=" + birthYear +
-                ", salary=" + salary +
-                ", rate=" + rate*100 +"%"+
-                '}';
+        return "Name: "+this.getName()+", a vanishingposition \n"+
+                "Age: "+this.getAge()+"\n"+
+                this.getEmpVehicle().toString()+
+                this.getName() +" has an occupation rate: "+this.getRate()+"% ";
+    }
+
+
+    public void signContract(Contract p1) {
+        this.setCurrentContract(p1);
+        this.salary = this.currentContract.accumulatedSalary();
+    }
+
+    public String contractInfo() {
+        return this.getName()+" is a vanishingposition."+this.getCurrentContract().toString();
     }
 }

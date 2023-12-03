@@ -25,4 +25,12 @@ public class Car extends Vehicle {
     public void setType(VehicleType type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "Employee has a car.\n"+
+        super.toString()+
+        "\t- gear type: "+this.getTransmission()+"\n" +
+        "\t- type: "+this.getType()+"\n" ;
+    }
 }

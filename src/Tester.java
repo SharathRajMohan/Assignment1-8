@@ -7,11 +7,13 @@ public class Tester extends Employee{
     public Tester(String name, int birthYear, int nbBugs, double rate) {
         super(name, birthYear, rate);
         this.nbBugs = nbBugs;
+        System.out.println("We have a new Employee: "+this.getName()+", a tester.");
     }
 
     public Tester(String name, int birthYear, int nbBugs, double rate, Vehicle vehicle) {
         super(name, birthYear, rate, vehicle);
         this.nbBugs = nbBugs;
+        System.out.println("We have a new Employee: "+this.getName()+", a tester.");
     }
 
     public int getNbBugs() {
@@ -31,9 +33,14 @@ public class Tester extends Employee{
 
     @Override
     public String toString() {
-        return "Tester{" +
-                "\nEmployee Details=" + super.toString() +
-                "\nnbBugs=" + nbBugs +
-                "\n}";
+        return super.toString().replace("vanishingposition","Tester")+
+                " and corrected "+ this.getNbBugs() +" bugs." +
+                "\nHis/Her estimated annual income is "+this.annualIncome();
     }
+
+    @Override
+    public String contractInfo() {
+        return super.contractInfo().replace("vanishingposition","tester");
+    }
+
 }

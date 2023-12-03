@@ -45,11 +45,9 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle{" +
-                "make='" + make + '\'' +
-                ", plate='" + plate + '\'' +
-                ", color='" + color + '\'' +
-                ", category=" + category +
-                '}';
+        return "\t- make: "+this.getMake()+"\n" +
+                "\t- plate: "+this.getPlate()+"\n" +
+                "\t- color: "+this.getColor()+"\n" +
+                "\t- category: "+this.getCategory()+"\n";
     }
 }

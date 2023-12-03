@@ -12,12 +12,14 @@ public class Manager extends Employee {
         super(name, birthYear, rate);
         this.nbTravelDays = nbTravelDays;
         this.nbClients = nbClients;
+        System.out.println("We have a new Employee: "+this.getName()+", a manager.");
     }
     //Manager: name, birthYear, nbClients, nbTravelDays, rate
     public Manager(String name, int birthYear, int nbClients, int nbTravelDays) {
         super(name, birthYear);
         this.nbTravelDays = nbTravelDays;
         this.nbClients = nbClients;
+        System.out.println("We have a new Employee: "+this.getName()+", a manager.");
     }
 
     // Vehicle constructors
@@ -25,12 +27,14 @@ public class Manager extends Employee {
         super(name, birthYear, empcar);
         this.nbTravelDays = nbTravelDays;
         this.nbClients = nbClients;
+        System.out.println("We have a new Employee: "+this.getName()+", a manager.");
     }
 
     public Manager(String name, int birthYear, int nbClients, int nbTravelDays, double rate, Vehicle empcar) {
         super(name, birthYear, rate, empcar);
         this.nbTravelDays = nbTravelDays;
         this.nbClients = nbClients;
+        System.out.println("We have a new Employee: "+this.getName()+", a manager.");
     }
 
     public int getNbTravelDays() {
@@ -59,10 +63,15 @@ public class Manager extends Employee {
 
     @Override
     public String toString() {
-        return "Manager{" +
-                "\nEmployee Details=" + super.toString() +
-                "\nnbTravelDays=" + nbTravelDays +
-                ", nbClients=" + nbClients +
-                "\n}";
+        return super.toString().replace("vanishingposition","Manager")+
+                " He/She travelled "+this.getNbTravelDays()+" days and\n" +
+                "has brought "+this.getNbClients()+" new clients."+
+                "\nHis/Her estimated annual income is "+this.annualIncome();
     }
+
+    @Override
+    public String contractInfo() {
+        return super.contractInfo().replace("vanishingposition","manager");
+    }
+
 }

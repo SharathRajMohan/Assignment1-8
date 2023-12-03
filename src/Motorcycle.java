@@ -16,5 +16,10 @@ public class Motorcycle extends Vehicle {
         this.hasSidecar = hasSidecar;
     }
 
+    @Override
+    public String toString() {
+        return "Employee has a motorcycle\n"+
+                super.toString()+ (this.isHasSidecar() ? "\t- with sidecar\n":"\t- without sidecar\n");
+    }
 
 }
